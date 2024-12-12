@@ -1,0 +1,4 @@
+/report/*
+/out/production/VV-ISTIC-TP3/main/*.class
+/out/production/VV-ISTIC-TP3/test/*.class
+/.idea/.gitignore

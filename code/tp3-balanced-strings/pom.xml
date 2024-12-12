@@ -23,31 +23,46 @@
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-            </plugin>
-
-            <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>1.5.2</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.pitest</groupId>
-                        <artifactId>pitest-junit5-plugin</artifactId>
-                        <version>0.12</version>
-                    </dependency>
-                </dependencies>
+                <version>1.9.11</version> <!-- Vérifiez la dernière version sur le site officiel -->
+                <configuration>
+                    <!-- Configuration de base, à personnaliser si nécessaire -->
+                    <targetClasses>
+                        <!-- Spécifiez les classes à tester, par exemple votre package principal -->
+                        <param>main</param>
+                    </targetClasses>
+                    <targetTests>
+                        <!-- Spécifiez les tests, par exemple votre package de tests -->
+                        <param>test</param>
+                    </targetTests>
+                    <mutators>
+                        <!-- Définir les mutators que vous souhaitez utiliser -->
+                        <mutator>DEFAULTS</mutator>
+                    </mutators>
+                    <outputFormats>
+                        <param>HTML</param>
+                        <param>XML</param>
+                    </outputFormats>
+                </configuration>
             </plugin>
         </plugins>
     </build>
 
     <dependencies>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.6.2</version>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit 5 Adapter for PIT -->
+        <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>0.13</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
