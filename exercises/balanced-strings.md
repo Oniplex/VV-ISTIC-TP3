@@ -26,64 +26,61 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 
 ## Answer
 
-### 1 -
+# Question 1
 
-- **Test 1 :** Chaîne contenant uniquement des symboles de regroupement. (`"()[]{}"` , `"{[()]}"`)
-- **Test 2 :** Chaîne contenant des symboles de regroupement et d’autres caractères. (`"a(b)c"` , `"{a[b(c)d]e}"`)
-- **Test 3 :** Chaîne ne contenant aucun symbole de regroupement (inclut la chaîne vide).  (`""` , `"abcde"`)
-- **Test 4 :** Chaîne contenant uniquement des parenthèses `()`. (`"((()))"`)
-- **Test 5 :** Chaîne contenant uniquement des crochets `[]`. (`"[[[]]]"`)
-- **Test 6 :** Chaîne contenant uniquement des accolades `{}`. (`"{{{}}}"`)
-- **Test 7 :** Chaîne contenant une combinaison de différents types de symboles `()[]{}`. (`"{[]()}"`)
-- **Test 8 :** Symboles correctement appariés et imbriqués. (`"{[()]}"`)
-- **Test 9 :** Symboles correctement appariés mais non imbriqués. (`"()[]{}"`)
-- **Test 10 :** Symboles mal appariés ou mal imbriqués. (`"([)]"`, `"{(}{}"`)
-- **Test 11 :** Symboles d’ouverture sans correspondance de fermeture. (`"((("`, `"{{"`)
-- **Test 12 :** Symboles de fermeture sans correspondance d’ouverture. (`")))"`, `"}}"`)
-- **Test 13 :** Chaîne vide. (`""`)
-- **Test 14 :** Chaîne de longueur paire. (`"()[]{}"`)
-- **Test 15 :** Chaîne de longueur impaire. (`"({})("`)
-- **Test 16 :** Chaîne `null`. (`null`)
-- **Test 17 :** Chaîne contenant uniquement des symboles d’ouverture. (`"((("`, `"[["`, `"{{{"`)
-- **Test 18 :** Chaîne contenant uniquement des symboles de fermeture. (`")))"`, `"]]"`, `"}}}"`)
+- **Test 1:** String containing only grouping symbols. (`"()[]{}"`, `"{[()]}"`)
+- **Test 2:** String containing grouping symbols and other characters. (`"a(b)c"`, `"{a[b(c)d]e}"`)
+- **Test 3:** String containing no grouping symbols (includes the empty string). (`""`, `"abcde"`)
+- **Test 4:** String containing only parentheses `()`. (`"((()))"`)
+- **Test 5:** String containing only brackets `[]`. (`"[[[]]]"`)
+- **Test 6:** String containing only braces `{}`. (`"{{{}}}"`)
+- **Test 7:** String containing a combination of different types of symbols `()[]{}`. (`"{[]()}"`)
+- **Test 8:** Correctly paired and nested symbols. (`"{[()]}"`)
+- **Test 9:** Correctly paired but not nested symbols. (`"()[]{}"`)
+- **Test 10:** Incorrectly paired or nested symbols. (`"([)]"`, `"{(}{}"`)
+- **Test 11:** Opening symbols without matching closing symbols. (`"((("`, `"{{"`)
+- **Test 12:** Closing symbols without matching opening symbols. (`")))"`, `"}}"`)
+- **Test 13:** Empty string. (`""`)
+- **Test 14:** Even-length string. (`"()[]{}"`)
+- **Test 15:** Odd-length string. (`"({})("`)
+- **Test 16:** `null` string. (`null`)
+- **Test 17:** String containing only opening symbols. (`"((("`, `"[["`, `"{{{"`)
+- **Test 18:** String containing only closing symbols. (`")))"`, `"]]"`, `"}}}"`)
 
+# Question 2
 
+### **Instructions Covered by Existing Tests**
 
-### 2 -
+By analyzing the test cases, we find that:
 
-### **Instructions Couvertes par les Tests Existants**
+- **All conditional statements** (such as checks for opening and closing symbols) are covered by at least one test case.
+- **Return branches** (`return false` and `return true`) are also covered.
+- **Calls to `isMatchingPair`** are tested with both matching and non-matching pairs.
+- **Scenarios with `null` strings, empty strings, strings with only opening or closing symbols, and correctly or incorrectly nested symbols** are all tested.
 
-En analysant les cas de test, nous constatons que :
+# Question 3
 
-- **Toutes les instructions conditionnelles** (comme les vérifications de symboles d'ouverture et de fermeture) sont couvertes par au moins un cas de test.
-- **Les branches de retour** (`return false` et `return true`) sont également couvertes.
-- **Les appels à `isMatchingPair`** sont testés avec des paires correspondantes et non correspondantes.
-- **Les scénarios de chaîne `null`, vide, avec uniquement des symboles d'ouverture ou de fermeture, et avec des symboles imbriqués correctement ou incorrectement** sont tous testés.
+### **Predicates in the `isBalanced` Method**
 
-
-### 3 - 
-
-### **Prédicats dans la Méthode `isBalanced`**
-
-1. **Vérification des Symboles d'Ouverture :**
+1. **Checking for Opening Symbols:**
    ```java
    if (c == '(' || c == '{' || c == '[')
    ```
-    - **Conditions de base :**
-        - `c == '('`
-        - `c == '{'`
-        - `c == '['`
+   - **Basic Conditions:**
+      - `c == '('`
+      - `c == '{'`
+      - `c == '['`
 
-2. **Vérification des Symboles de Fermeture :**
+2. **Checking for Closing Symbols:**
    ```java
    else if (c == ')' || c == '}' || c == ']')
    ```
-    - **Conditions de base :**
-        - `c == ')'`
-        - `c == '}'`
-        - `c == ']'`
+   - **Basic Conditions:**
+      - `c == ')'`
+      - `c == '}'`
+      - `c == ']'`
 
-### **Prédicat dans la Méthode `isMatchingPair`**
+### **Predicate in the `isMatchingPair` Method**
 
 ```java
 return (open == '(' && close == ')') ||
@@ -91,94 +88,93 @@ return (open == '(' && close == ')') ||
        (open == '[' && close == ']');
 ```
 
-- **Conditions de base :**
-    - `(open == '(' && close == ')'`
-    - `(open == '{' && close == '}'`
-    - `(open == '[' && close == ']'`
+- **Basic Conditions:**
+   - `(open == '(' && close == ')'`
+   - `(open == '{' && close == '}'`
+   - `(open == '[' && close == ']'`
 
-## **Ajout de Cas de Test pour Assurer une Couverture BCC Complète**
+## **Adding Test Cases to Ensure Complete Base Choice Coverage**
 
-Même si la couverture BCC semble être couverte par les tests existants, pour renforcer les tests, ajoutons quelques cas supplémentaires qui ciblent explicitement certaines conditions.
+Even though base choice coverage seems to be covered by the existing tests, to strengthen the tests, let's add some additional cases that explicitly target certain conditions.
 
-## **Mise à Jour des Cas de Test**
+## **Updating Test Cases**
 
 ```java
-// Nouveau Cas de Test 19 : Paires avec Types Mélangés mais Non Correspondants
+// New Test Case 19: Pairs with Mixed but Non-Matching Types
 @Test
 void testMixedNonMatchingPairs() {
-    // open == '(' mais close != ')'
-    assertFalse(isBalanced("(]"), "Paire '(' avec ']' ne doit pas être équilibrée.");
+    // open == '(' but close != ')'
+    assertFalse(isBalanced("(]"), "Pair '(' with ']' should not be balanced.");
     
-    // open == '{' mais close != '}'
-    assertFalse(isBalanced("{)"), "Paire '{' avec ')' ne doit pas être équilibrée.");
+    // open == '{' but close != '}'
+    assertFalse(isBalanced("{)"), "Pair '{' with ')' should not be balanced.");
     
-    // open == '[' mais close != ']'
-    assertFalse(isBalanced("[}"), "Paire '[' avec '}' ne doit pas être équilibrée.");
+    // open == '[' but close != ']'
+    assertFalse(isBalanced("[}"), "Pair '[' with '}' should not be balanced.");
 }
 
-// Nouveau Cas de Test 20 : Paires avec Symboles de Fermeture Incorrects au Milieu
+// New Test Case 20: Incorrect Closing Symbols in the Middle
 @Test
 void testIncorrectClosingSymbolsInMiddle() {
-    // Chaîne avec une fermeture incorrecte au milieu
-    assertFalse(isBalanced("{[}(])}"), "Chaîne avec fermeture incorrecte au milieu ne doit pas être équilibrée.");
+    // String with an incorrect closing in the middle
+    assertFalse(isBalanced("{[}(])}"), "String with incorrect closing in the middle should not be balanced.");
 }
 
-// Nouveau Cas de Test 21 : Symboles d'Ouverture Non Correspondants suivis de Fermeture
+// New Test Case 21: Unmatched Opening and Closing Symbols
 @Test
 void testUnmatchedOpeningAndClosingSymbols() {
-    // Plusieurs symboles d'ouverture sans fermetures correspondantes
-    assertFalse(isBalanced("({["), "Chaîne avec multiples symboles d'ouverture sans fermetures ne doit pas être équilibrée.");
+    // Multiple opening symbols without matching closings
+    assertFalse(isBalanced("({["), "String with multiple opening symbols without closings should not be balanced.");
     
-    // Symboles de fermeture sans symboles d'ouverture correspondants
-    assertFalse(isBalanced(")]}"), "Chaîne avec multiples symboles de fermeture sans symboles d'ouverture ne doit pas être équilibrée.");
+    // Closing symbols without matching opening symbols
+    assertFalse(isBalanced(")]}"), "String with multiple closing symbols without openings should not be balanced.");
 }
 
-// Nouveau Cas de Test 22 : Symboles Mélangés avec Caractères Non Symboles
+// New Test Case 22: Mixed Symbols with Non-Symbol Characters
 @Test
 void testSymbolsWithNonMatchingCharacters() {
-    // Symboles mélangés avec des caractères non symboles et des paires incorrectes
-    assertFalse(isBalanced("{a[b(c]d)e}"), "Chaîne avec symboles mal imbriqués et caractères ne doit pas être équilibrée.");
+    // Mixed symbols with non-symbol characters and incorrect pairs
+    assertFalse(isBalanced("{a[b(c]d)e}"), "String with incorrectly nested symbols and characters should not be balanced.");
 }
 ```
 
-## 4 -
+# Question 4
 
 ### **Mutation Score**
 
 ![pit.png](../code/tp3-balanced-strings/pit.png)
 
-- **Mutants Générés :** 21
-- **Mutants Tués :** 21
-- **Mutants Vivants :** 0
-- **Mutation Score :** **100%**
+- **Mutants Generated:** 21
+- **Mutants Killed:** 21
+- **Live Mutants:** 0
+- **Mutation Score:** **100%**
 
-### **b. Couverture des Lignes**
+### **b. Line Coverage**
 
-- **Lignes Couvertes :** 14/15 (93%)
-- **Mutations sans Couverture :** 0
-- **Force des Tests :** 100%
+- **Lines Covered:** 14/15 (93%)
+- **Mutations Not Covered:** 0
+- **Strength of Tests:** 100%
 
-### **c. Détails des Mutants Tués**
+### **c. Details of Killed Mutants**
 
-Les mutateurs utilisés et leur impact :
+The mutators used and their impact:
 
 1. **BooleanTrueReturnValsMutator**
-    - **Mutations Générées :** 5
-    - **Mutants Tués :** 5 (100%)
+   - **Mutations Generated:** 5
+   - **Mutants Killed:** 5 (100%)
 
 2. **BooleanFalseReturnValsMutator**
-    - **Mutations Générées :** 1
-    - **Mutants Tués :** 1 (100%)
+   - **Mutations Generated:** 1
+   - **Mutants Killed:** 1 (100%)
 
 3. **NegateConditionalsMutator**
-    - **Mutations Générées :** 15
-    - **Mutants Tués :** 15 (100%)
+   - **Mutations Generated:** 15
+   - **Mutants Killed:** 15 (100%)
 
-#### **1. Mutation Score de 100%**
+#### **1. Mutation Score of 100%**
 
-Un **mutation score de 100%** indique que la suite de tests est extrêmement robuste. Chaque mutation introduite par PIT a été détectée par au moins un cas de test, ce qui démontre une couverture complète des scénarios critiques et des branches conditionnelles du code.
+A **mutation score of 100%** indicates that the test suite is extremely robust. Every mutation introduced by PIT was detected by at least one test case, demonstrating complete coverage of critical scenarios and conditional branches in the code.
 
-#### **2. Absence de Mutants Vivants**
+#### **2. Absence of Live Mutants**
 
-L'absence de **mutants vivants** confirme que la suite de tests actuelle ne laisse aucune zone du code non vérifiée. Cela réduit significativement le risque de bugs non détectés et assure une haute fiabilité de la méthode `isBalanced`.
-
+The absence of **live mutants** confirms that the current test suite does not leave any part of the code unchecked. This significantly reduces the risk of undetected bugs and ensures high reliability of the `isBalanced` method.
