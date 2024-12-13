@@ -1,4 +1,4 @@
-package fr.istic.vv;
+package main;
 
 /**
  * TLS protocols arranged in descending order of security preference in terms of
